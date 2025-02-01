@@ -1,0 +1,161 @@
+<div class="background">
+    <!-- Navbar (Header) -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand fs-2" href="#">
+                <img class="logo rounded-circle" src="images/logo.jpg" alt="Car Rental Logo"> Car Rental
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Carousel Section (Car Images with Text) -->
+    <!-- Carousel Section (Car Images with Text) -->
+    <div class="container py-5">
+        <!-- <div id="carCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000"> -->
+        <div id="carCarousel" class="carousel slide" >
+            <!-- Carousel Inner -->
+            <div class="carousel-inner">
+                <!-- First Item -->
+                <div class="carousel-item active">
+                    <img src="images/logo.jpg" class="d-block w-100" alt="Car 1">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Luxury Cars for Your Perfect Ride</h5>
+                        <p>Experience comfort and style with our luxury car rentals.</p>
+                    </div>
+                </div>
+                <!-- Second Item -->
+                <div class="carousel-item">
+                    <img src="images/backgroundImage.jpg" class="d-block w-100" alt="Car 2">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Affordable Rentals for Every Budget</h5>
+                        <p>Find the perfect car at a price that suits you.</p>
+                    </div>
+                </div>
+                <!-- Third Item -->
+                <div class="carousel-item">
+                    <img src="images/logo.jpg" class="d-block w-100" alt="Car 3">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Drive in Style and Comfort</h5>
+                        <p>Choose from a wide range of vehicles for all your travel needs.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Carousel Navigation Buttons -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    
+
+    <!-- Booking Form Section -->
+    <div class="container py-5" id="booking">
+        <h2 class="text-center mb-4 text-primary">Book Your Car Now</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card shadow-lg border-0 rounded-4">
+                    <div class="card-body p-5">
+                        <form [formGroup]="bookingForm" (ngSubmit)="submitBooking()">
+
+                            <div class="form-group mb-4">
+                                <label for="fullName" class="form-label">Full Name</label>
+                                <input type="text" id="fullName" class="form-control form-control-lg rounded-pill"
+                                    formControlName="fullName" placeholder="Enter your full name" />
+                                <div *ngIf="bookingForm.get('fullName')?.invalid && bookingForm.get('fullName')?.touched"
+                                    class="text-danger">
+                                    Full Name is required (at least 3 characters).
+                                </div>
+                            </div>
+    
+                            <div class="form-group mb-4">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" id="email" class="form-control form-control-lg rounded-pill"
+                                    formControlName="email" placeholder="Enter your email address" />
+                                <div *ngIf="bookingForm.get('email')?.invalid && bookingForm.get('email')?.touched"
+                                    class="text-danger">
+                                    Please enter a valid email address.
+                                </div>
+                            </div>
+    
+                            <div class="form-group mb-4">
+                                <label for="pickupLocation" class="form-label">Pickup Location</label>
+                                <input type="text" id="pickupLocation" class="form-control form-control-lg rounded-pill"
+                                    formControlName="pickupLocation" placeholder="Enter pickup location" />
+                                <div *ngIf="bookingForm.get('pickupLocation')?.invalid && bookingForm.get('pickupLocation')?.touched"
+                                    class="text-danger">
+                                    Pickup Location is required.
+                                </div>
+                            </div>
+    
+                            <div class="form-group mb-4">
+                                <label for="destination" class="form-label">Destination</label>
+                                <input type="text" id="destination" class="form-control form-control-lg rounded-pill"
+                                    formControlName="destination" placeholder="Enter your destination" />
+                                <div *ngIf="bookingForm.get('destination')?.invalid && bookingForm.get('destination')?.touched"
+                                    class="text-danger">
+                                    Destination is required.
+                                </div>
+                            </div>
+    
+                            <div class="form-group mb-4">
+                                <label for="duration" class="form-label">Duration (in days)</label>
+                                <input type="number" id="duration" class="form-control form-control-lg rounded-pill"
+                                    formControlName="duration" placeholder="Enter rental duration" />
+                                <div *ngIf="bookingForm.get('duration')?.invalid && bookingForm.get('duration')?.touched"
+                                    class="text-danger">
+                                    Duration is required (1-14 days).
+                                </div>
+                            </div>
+    
+                            <div class="form-group text-center">
+                                <button type="submit" class="btn btn-primary btn-lg w-100 rounded-pill py-3 shadow-sm"
+                                    [disabled]="bookingForm.invalid">
+                                    Book Now
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4">
+        <p class="mb-2">&copy; 2025 Car Rental. All rights reserved.</p>
+        <div>
+            <a href="#" class="text-white mx-3 fs-4" style="transition: transform 0.3s;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-white mx-3 fs-4" style="transition: transform 0.3s;">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-white mx-3 fs-4" style="transition: transform 0.3s;">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+    </footer>
+</div>

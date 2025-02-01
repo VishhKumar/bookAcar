@@ -1,0 +1,75 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+}
+
+.bgImage{
+  /* background: url('/images/bg2.png') no-repeat center center/cover; */
+  background: url('/images/download.jfif') no-repeat center center/cover;
+
+}
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5); /* Transparent overlay */
+  padding: 20px;
+}
+
+/* Header Section */
+.hero-section {
+  background: url('/assets/images/logo.png') no-repeat center center/cover;
+  color: white;
+  /* padding: 100px 0; */
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+}
+
+/* Car List Section */
+.car-list {
+  /* background: url('https://via.placeholder.com/1500x600') no-repeat center center/cover; */
+  color: white;
+}
+
+.card {
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+/* Booking Form Section */
+.booking-form {
+  /* background: url('https://via.placeholder.com/1500x600') no-repeat center center/cover; */
+  color: white;
+}
+
+/* Reviews Section */
+.reviews {
+  background: url('https://via.placeholder.com/1500x600') no-repeat center center/cover;
+  color: white;
+}
+
+/* Footer Section */
+.footer {
+  background-color: #343a40;
+  color: white;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: none; /* Remove the invert filter */
+  background-color: #007bff; /* Blue background */
+  border-radius: 50%; /* Make it circular */
+  padding: 10px; /* Add padding */
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background-color: rgba(0, 0, 0, 0.8); /* Darker background on hover */
+}
